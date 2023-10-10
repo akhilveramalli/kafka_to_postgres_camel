@@ -11,11 +11,15 @@ import org.apache.camel.Processor;
 public class SampleProcessor implements Processor {
 
     private final String INSERT_QUERY = "INSERT INTO sample_table (json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
-
+    // "INSERT INTO sample_table (json) VALUES ('%s')"
+//  "INSERT INTO sample_table (json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
     @Override
     public void process(Exchange exchange) {
         var event = (SampleEvent) exchange.getIn().getBody();
 
+        var insertQuery = String.format(INSERT_QUERY,  event.getName());
+
+        exchange.getIn().setBody(insertQuery);
         // byte[] event = (SampleEvent) exchange.getIn().getBody(byte[].class);
 
         // byte[] base64Data = event.getName();
@@ -36,9 +40,9 @@ public class SampleProcessor implements Processor {
         
 
         // var insertQuery = String.format(INSERT_QUERY, utf8String);
-        var insertQuery = String.format(INSERT_QUERY,  event.getName());
+        
 
 
-        exchange.getIn().setBody(insertQuery);
+       
     }
 }
