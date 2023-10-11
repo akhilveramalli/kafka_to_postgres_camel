@@ -10,7 +10,7 @@ import org.apache.camel.Processor;
 
 public class SampleProcessor implements Processor {
 
-    private final String INSERT_QUERY = "INSERT INTO sample_table (json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
+    private final String INSERT_QUERY = "INSERT INTO zone_telemetry (zone_telemetry_json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
     // "INSERT INTO sample_table (json) VALUES ('%s')"
 //  "INSERT INTO sample_table (json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
     @Override

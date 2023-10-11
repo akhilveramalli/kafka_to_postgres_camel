@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.sample_table
+CREATE TABLE IF NOT EXISTS public.zone_telemetry
 (
-    json     VARCHAR(10000000)
+    zone_telemetry_json     VARCHAR(10000000)
 )

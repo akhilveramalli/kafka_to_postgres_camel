@@ -235,3 +235,24 @@ If Kafka or the database goes offline, the kafka property in the health json sho
     }
 
 As soon as Kafka goes online again, the application will recover it's state.
+
+
+In apps Database create an flyway_schema_history table and insert few records into it 
+
+CREATE TABLE public.flyway_schema_history (
+    installed_rank integer NOT NULL,
+    version character varying(50),
+    description character varying(200) NOT NULL,
+    type character varying(20) NOT NULL,
+    script character varying(1000) NOT NULL,
+    checksum integer,
+    installed_by character varying(100) NOT NULL,
+    installed_on timestamp without time zone DEFAULT now() NOT NULL,
+    execution_time integer NOT NULL,
+    success boolean NOT NULL
+);
+
+INSERT INTO public.flyway_schema_history(
+	installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+	VALUES (1,'1','Create sample table','SQL','V1__Create_sample_table.sql',-382279913,'postgres','2023-10-10 18:03:58.395206',7,True),
+	(2,'2','Create errors issued table','SQL','V2__Create_errors_issued_table.sql',-2040988036,'postgres','2023-10-10 18:03:58.416923',7,True);
