@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 public class SampleEvent {
 
     private String payload;
-    // private Integer quantity;
-    // private BigDecimal price;
+    private Integer zoneid;
+    private Integer deviceid;
 
     public String getName() {
         
@@ -22,19 +22,19 @@ public class SampleEvent {
         this.payload = payload;
     }
 
-    // public Integer getQuantity() {
-    //     return quantity;
-    // }
+    public Integer getZoneid() {
+        return zoneid;
+    }
 
-    // public void setQuantity(Integer quantity) {
-    //     this.quantity = quantity;
-    // }
+    public void setZoneid(Integer quantity) {
+        this.zoneid = zoneid;
+    }
 
-    // public BigDecimal getPrice() {
-    //     return price;
-    // }
+    public Integer getDeviceid() {
+        return price;
+    }
 
-    // public void setPrice(BigDecimal price) {
-    //     this.price = price;
-    // }
+    public void setDeviceid(Integer price) {
+        this.deviceid = deviceid;
+    }
 }

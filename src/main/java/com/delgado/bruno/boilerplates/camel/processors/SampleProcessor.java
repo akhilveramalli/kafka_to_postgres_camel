@@ -10,14 +10,14 @@ import org.apache.camel.Processor;
 
 public class SampleProcessor implements Processor {
 
-    private final String INSERT_QUERY = "INSERT INTO zone_telemetry (zone_telemetry_json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
+    private final String INSERT_QUERY = "INSERT INTO zone_telemetry (zone_telemetry_json, zone_id, device_id) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'), %s, %s)";
     // "INSERT INTO sample_table (json) VALUES ('%s')"
 //  "INSERT INTO sample_table (json) VALUES (convert_from(decode(('%s'), 'base64'), 'UTF8'))";
     @Override
     public void process(Exchange exchange) {
         var event = (SampleEvent) exchange.getIn().getBody();
 
-        var insertQuery = String.format(INSERT_QUERY,  event.getName());
+        var insertQuery = String.format(INSERT_QUERY,  event.getName(), event.getZoneid(), event.getDeviceid());
 
         exchange.getIn().setBody(insertQuery);
         // byte[] event = (SampleEvent) exchange.getIn().getBody(byte[].class);
