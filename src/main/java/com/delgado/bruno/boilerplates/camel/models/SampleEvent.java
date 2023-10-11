@@ -31,7 +31,7 @@ public class SampleEvent {
     }
 
     public Integer getDeviceid() {
-        return price;
+        return deviceid;
     }
 
     public void setDeviceid(Integer price) {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SampleRoute extends RouteBuilder {
 
-    public static final String OFFSET = "earliest";
+    public static final String OFFSET = "latest"; //earliest
     public static final String TOPIC_ID = "tayrix";
     public static final String GROUP_ID = "sample_consumer6";
 
