@@ -11,7 +11,7 @@ public class SampleEvent {
 
     private String payload;
     private Integer zoneid;
-    private Integer deviceid;
+    private String deviceid;
 
     public String getName() {
         
@@ -26,15 +26,15 @@ public class SampleEvent {
         return zoneid;
     }
 
-    public void setZoneid(Integer quantity) {
+    public void setZoneid(Integer zoneid) {
         this.zoneid = zoneid;
     }
 
-    public Integer getDeviceid() {
+    public String getDeviceid() {
         return deviceid;
     }
 
-    public void setDeviceid(Integer price) {
+    public void setDeviceid(String deviceid) {
         this.deviceid = deviceid;
     }
 }
