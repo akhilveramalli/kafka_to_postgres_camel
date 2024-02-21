@@ -16,9 +16,7 @@ public class SampleProcessor implements Processor {
     @Override
     public void process(Exchange exchange) {
         var event = (SampleEvent) exchange.getIn().getBody();
-
-        var insertQuery = String.format(INSERT_QUERY,  event.getName(), event.getZoneid(), event.getDeviceid());
-
+        var insertQuery = String.format(INSERT_QUERY,  event.getName(), event.getZoneid(),"'" + event.getDeviceid() + "'");
         exchange.getIn().setBody(insertQuery);
         // byte[] event = (SampleEvent) exchange.getIn().getBody(byte[].class);
 
